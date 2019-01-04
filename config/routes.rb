@@ -4,5 +4,3 @@ Rails.application.routes.draw do
 
   get 'welcome/about', to: 'welcome#about'
 end
-
-#lkljlk
