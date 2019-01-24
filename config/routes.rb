@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root to: 'welcome#home'
 
   get 'welcome/about', to: 'welcome#about'
+  get 'welcome/home', to: 'welcome#home'
+
+  resources :days
 end
