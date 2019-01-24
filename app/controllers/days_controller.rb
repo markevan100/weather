@@ -6,8 +6,13 @@ class DaysController <  ApplicationController
 
   def create
     @day = Day.new(day_params)
-    @day.save
-    redirect_to days_show(@day)
+
+    if @day.save
+      flash[:notice] = "Day was saved successfully."
+      redirect_to days_path(@day)
+    else
+      render :new
+    end
   end
 
   private
