@@ -9,10 +9,18 @@ class DaysController <  ApplicationController
 
     if @day.save
       flash[:notice] = "Day was saved successfully."
-      redirect_to days_path(@day)
+      redirect_to day_path(@day)
     else
       render :new
     end
+  end
+
+  def show
+
+    @day = Day.find(params[:id])
+  end
+
+  def index
   end
 
   private
