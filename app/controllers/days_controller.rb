@@ -1,4 +1,5 @@
 class DaysController <  ApplicationController
+  before_action :set_day, only: [:edit, :update, :show, :destroy]
 
   def index
     @days = Day.all
@@ -9,7 +10,6 @@ class DaysController <  ApplicationController
   end
 
   def edit
-    @day = Day.find(params[:id])
   end
 
   def create
@@ -24,7 +24,6 @@ class DaysController <  ApplicationController
   end
 
   def update
-    @day = Day.find(params[:id])
 
     if @day.update(day_params)
       flash[:notice] = "Day was edited successfully."
@@ -35,11 +34,9 @@ class DaysController <  ApplicationController
   end
 
   def show
-    @day = Day.find(params[:id])
   end
 
   def destroy
-    @day = Day.find(params[:id])
     @day.destroy
     flash[:notice] = "Day was successfully deleted."
     redirect_to days_path
@@ -49,6 +46,10 @@ class DaysController <  ApplicationController
   private
   def day_params
     params.require(:day).permit(:city, :weather)
+  end
+
+  def set_day
+    @day = Day.find(params[:id])
   end
 
 end
