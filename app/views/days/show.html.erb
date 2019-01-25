@@ -1,8 +1,9 @@
 <h1> Showing selected day </h1>
-
+<%= link_to "Index", days_path %>
 <p>
   City: <%= @day.city %>
 <p>
 <p>
   Weather: <%= @day.weather %>
 <p>
+<%= link_to "Edit day", edit_day_path(@day) %>

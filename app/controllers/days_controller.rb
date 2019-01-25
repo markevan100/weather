@@ -1,5 +1,9 @@
 class DaysController <  ApplicationController
 
+  def index
+    @days = Day.all
+  end
+
   def new
     @day = Day.new
   end
@@ -34,8 +38,6 @@ class DaysController <  ApplicationController
     @day = Day.find(params[:id])
   end
 
-  def index
-  end
 
   private
   def day_params
