@@ -38,6 +38,13 @@ class DaysController <  ApplicationController
     @day = Day.find(params[:id])
   end
 
+  def destroy
+    @day = Day.find(params[:id])
+    @day.destroy
+    flash[:notice] = "Day was successfully deleted."
+    redirect_to days_path
+  end
+
 
   private
   def day_params
