@@ -4,6 +4,10 @@ class DaysController <  ApplicationController
     @day = Day.new
   end
 
+  def edit
+    @day = Day.find(params[:id])
+  end
+
   def create
     @day = Day.new(day_params)
 
@@ -15,8 +19,18 @@ class DaysController <  ApplicationController
     end
   end
 
-  def show
+  def update
+    @day = Day.find(params[:id])
 
+    if @day.update(day_params)
+      flash[:notice] = "Day was edited successfully."
+      redirect_to day_path(@day)
+    else
+      render :new
+    end
+  end
+
+  def show
     @day = Day.find(params[:id])
   end
 

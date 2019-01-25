@@ -1,0 +1,23 @@
+<h1> You can edit a day's weather here </h1>
+<% if @day.errors.any? %>
+  <h2> The following errors prevented the new day from being edited. </h2>
+  <ul>
+  <% @day.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @day do |f| %>
+<p>
+  <%= f.label :city %></br>
+  <%= f.text_field :city %>
+</p>
+<p>
+  <%= f.label :weather %></br>
+  <%= f.text_area :weather %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
